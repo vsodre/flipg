@@ -36,10 +36,7 @@ function looseTime() {
   }
   document.getElementById("fuzzytime").innerHTML= report;
 }
-looseTime();
 var doit = setInterval(function(){looseTime()}, 60000);
-
-
 jQuery.ajax({
   url: 'http://api.openweathermap.org/data/2.5/weather?q=Cambridge,UK&units=metric&APPID=48fa395ba290ba63613f94c639dced4a',
   jsonp: 'callback',
