@@ -22,7 +22,7 @@
         <section class="dobra1">
             <table class="social-table">
                 <tr><td valign="middle"><div class="twitter-hover social-slide"></div></td></tr>
-                <tr><td><div class="facebook-hover social-slide"></div> </td></tr>
+                <tr><td><a href="https://www.facebook.com/TheFlipG"><div class="facebook-hover social-slide"></div></a></td></tr>
                 <tr><td><div class="google-hover social-slide"></div></td></tr>
                 <tr><td><div class="linkedin-hover social-slide"></div></td></tr>
                 <tr><td><div class="instagram-hover social-slide"></div></td></tr>
