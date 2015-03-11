@@ -1,3 +1,6 @@
+body{
+    background-color: #EFEBF3;
+}
 .grid > li {
   position: relative;
   float: left;
