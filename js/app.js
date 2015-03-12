@@ -72,6 +72,14 @@
                text:"Tudo bem e vc?"
            },
            {
+              title: "Hi how are you?",
+              text: "Fine an you?"
+           },
+           {
+               title: "Hi how are you?",
+               text: "Fine and you?"
+           },
+           {
                title:"Oi como vai?",
                text:"Tudo bem e vc?"
            }
