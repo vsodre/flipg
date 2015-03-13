@@ -4,84 +4,76 @@
     app.controller('DashboardController', function(){
        this.feeds=[
            {
-               title:"Lorem ipsum",
-               text:"Lorem ipsum dolor sit amet, perfecto quaestio posidonium quo cu, illud conclusionemque ius et, an mei elit aeque malorum. Scripta vulputate no duo. Ei nominavi elaboraret ullamcorper sit, vis partem omnium oporteat ea. Utamur eruditi in vel, nam malorum quaerendum ut, in eam habeo dolorum. Qui ut meis iuvaret invenire, ea novum menandri sed.Affert meliore elaboraret et quo, audire invidunt at has, eu debet tollit per. Ad sonet laoreet definitionem est. Stet animal referrentur eu qui. At falli salutatus usu. Ea pertinax percipitur delicatissimi qui. No mel augue appellantur."
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            },
            {
-              title: "Hi how are you?",
-              text: "Fine an you?"
-           },
-           {
-               title: "Hi how are you?",
-               text: "Fine and you?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
+               title: "Plushies",
+               text: "They are so adorable."
            }
        ];         
     });
