@@ -5,21 +5,22 @@
 
         <title>FlipG</title>
         
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:100,400|Roboto+Slab:100,400'>
-        <link rel='stylesheet prefetch' href='css/font-awesome.min.css'>
-        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+        <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:100,400|Roboto+Slab:100,400' />
+        <link rel='stylesheet prefetch' href='css/font-awesome.min.css' />
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
 
     <body ng-controller="DashboardController as dashboard">
 
-        <nav id="fixedbar">
-            <img id="logoFlipG" src="" alt="FlipG" />
-            <div class="lightSearch">
-                <form>
-                    <span><input type="text" class="search rounded" placeholder="Search..." /></span>
-                </form>
-            </div>
+        <nav>
+            <ul>
+                <li><img id="logoFlipG" src="img/logo.png" alt="FlipG" /></li>
+                <li>
+                    <form>
+                        <input type="text" class="search" placeholder="Search for any blog..." />
+                    </form>
+                </li>
+            </ul>
         </nav>
         <div class="wrapper cf">
             <ul class="grid">
