@@ -3,15 +3,14 @@ body, html {
     margin:0;
 }
 body {
-<<<<<<< HEAD
-  background: -webkit-radial-gradient(circle, #8dcded, #0a2c3e);
-  background: radial-gradient(circle, #8dcded, #0a2c3e);
-  font-family: sans-serif;
-  line-height: 1.5;
+    background: -webkit-radial-gradient(circle, #8dcded, #0a2c3e);
+    background: radial-gradient(circle, #8dcded, #0a2c3e);
+    font-family: sans-serif;
+    line-height: 1.5;
 }
 #logoFlipG {
-  height: 42px;
-  width: 80px;
+    height: 42px;
+    width: 80px;
 }
 
 nav, div.nav {
@@ -62,7 +61,6 @@ nav, div.nav {
 .wrapper {
   position: relative;
   width: 100%;
-  /*width:1024px;*/
   margin: 0 auto;
   background: #fff;
   padding: 3em;
@@ -103,30 +101,7 @@ nav, div.nav {
 li div.rotate {
   padding: 0;
 }
-.class1 {
-  background: #3629b8;
-}
-.class2 {
-  background: #a129b8;
-}
-.class3 {
-  background: #b82964;
-}
-.class4 {
-  background: #b85a29;
-}
-.class5 {
-  background: #abb829;
-}
-.class6 {
-  background: #40b829;
-}
-.class7 {
-  background: #29b87d;
-}
-.class8 {
-  background: #2987b8;
-}
+
 h3 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 1.55em;
@@ -167,46 +142,46 @@ p {
           animation-duration: 1s;
 }
 .animated.hinge {
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
 }
 @-webkit-keyframes bounceIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   50% {
     opacity: 1;
     -webkit-transform: scale(1.05);
-            transform: scale(1.05);
+    transform: scale(1.05);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 @keyframes bounceIn {
   0% {
     opacity: 0;
     -webkit-transform: scale(0.8);
-            transform: scale(0.8);
+    transform: scale(0.8);
   }
   50% {
     opacity: 1;
     -webkit-transform: scale(1.05);
-            transform: scale(1.05);
+    transform: scale(1.05);
   }
   100% {
     opacity: 1;
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
   }
 }
 .bounceIn {
-  -webkit-animation-name: bounceIn;
-          animation-name: bounceIn;
+    -webkit-animation-name: bounceIn;
+    animation-name: bounceIn;
 }
 @-webkit-keyframes fadeIn {
   0% {
@@ -225,135 +200,135 @@ p {
   }
 }
 .delay {
-  -webkit-animation-delay: 0.30s;
-          animation-delay: 0.30s;
+    -webkit-animation-delay: 0.30s;
+    animation-delay: 0.30s;
 }
 .delay-three {
-  -webkit-animation-delay: 0.60s;
-          animation-delay: 0.60s;
+    -webkit-animation-delay: 0.60s;
+    animation-delay: 0.60s;
 }
 .delay-two {
-  -webkit-animation-delay: 1.0s;
-          animation-delay: 1.0s;
+    -webkit-animation-delay: 1.0s;
+    animation-delay: 1.0s;
 }
 .delay-one {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
 }
 .fadeIn {
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 @-webkit-keyframes fadeInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
     -webkit-transform: translateY(20px);
-            transform: translateY(20px);
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
-          animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
 }
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 @keyframes fadeInDown {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 .fadeInDown {
-  -webkit-animation-name: fadeInDown;
-          animation-name: fadeInDown;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
 }
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    ransform: translateX(0);
   }
 }
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
-          animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
 }
 .fadeOutDown {
   -webkit-animation-name: fadeOutDown;
-          animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
 }
 @-webkit-keyframes fadeOutLeft {
   0% {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   100% {
     opacity: 0;
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
 }
 @keyframes fadeOutLeft {
   0% {
     opacity: 1;
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   100% {
     opacity: 0;
     -webkit-transform: translateX(-20px);
-            transform: translateX(-20px);
+    transform: translateX(-20px);
   }
 }
 @-webkit-keyframes fadeOut {
@@ -373,13 +348,12 @@ p {
   }
 }
 .animated.fadeOut {
-  -webkit-animation-name: fadeOut;
-          animation-name: fadeOut;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
 }
 .animated.fadeOutLeft {
-  -webkit-animation-name: fadeOutLeft;
-          animation-name: fadeOutLeft;
-=======
+    -webkit-animation-name: fadeOutLeft;
+    animation-name: fadeOutLeft;
     overflow:hidden;
     width:100%;
     height:100%;
@@ -419,7 +393,6 @@ section {
     height:100%;
     overflow:auto;
     left:0;
->>>>>>> 24e5600650733ecc2e16af99a8fe92f8f93b4f8e
 }
 
 section.dobra1 {
@@ -460,9 +433,10 @@ section.dobra1 article form input[type=text] {
     border:2px solid #fff;
     width:216px;
     margin:0;
+    margin-bottom: 7.5px;
     font-size:9.5pt;
     color:#fff;
-    font-weight:300;
+    font-weight:600;
 }
 section.dobra1 article form input[type=submit] {
     display:block;
@@ -475,6 +449,7 @@ section.dobra1 article form input[type=submit] {
     width:30px;
     height:36px;
     font-size:25pt;
+    
 }
 
 section.dobra1 article form input[type=password] {
@@ -487,7 +462,7 @@ section.dobra1 article form input[type=password] {
     margin:0;
     font-size:9.5pt;
     color:#fff;
-    font-weight:300;
+    font-weight:600;
 }
 
 section.dobra1 nav {
@@ -532,98 +507,101 @@ section.dobra1 ul li a.atual {
     border-bottom:3px solid #fff;
 }
 
-   
+fieldset{
+  border: 2px solid white;
+  width: 240px;
+}
 
 /* latin */
 @font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Kreon Light'), local('Kreon-Light'), url(http://fonts.gstatic.com/s/kreon/v9/76aS1J5Mmu41iLp2Z15uBfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Kreon Light'), local('Kreon-Light'), url(http://fonts.gstatic.com/s/kreon/v9/76aS1J5Mmu41iLp2Z15uBfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
  
 }
 /* latin */
 @font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Kreon Regular'), local('Kreon-Regular'), url(http://fonts.gstatic.com/s/kreon/v9/gK2DcrR6Rzx5Ga9PpDfp3A.woff2) format('woff2');
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Kreon Regular'), local('Kreon-Regular'), url(http://fonts.gstatic.com/s/kreon/v9/gK2DcrR6Rzx5Ga9PpDfp3A.woff2) format('woff2');
 
 }
 /* latin */
 @font-face {
-  font-family: 'Kreon';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Kreon Bold'), local('Kreon-Bold'), url(http://fonts.gstatic.com/s/kreon/v9/xjKCXsEUnBvIKKUiQZ3MtfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    font-family: 'Kreon';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Kreon Bold'), local('Kreon-Bold'), url(http://fonts.gstatic.com/s/kreon/v9/xjKCXsEUnBvIKKUiQZ3MtfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
 
 }
 
 /*SOCIAL BUTTONS*/
 
 .social-slide {
-        height: 48px;
-	width: 48px;
-	margin: 20px;
-	-webkit-transition: all ease 0.3s;
-	-moz-transition: all ease 0.3s;
-	-o-transition: all ease 0.3s;
-	-ms-transition: all ease 0.3s;
-	transition: all ease 0.3s;
+    height: 48px;
+    width: 48px;
+    margin: 20px;
+    -webkit-transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+    transition: all ease 0.3s;
 }
 .social-slide:hover {
-	background-position: 0px -48px;
-	box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+    background-position: 0px -48px;
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
 }
 .twitter-hover {
-	background-image: url('../images/twitter-hover.png');
+    background-image: url('../images/twitter-hover.png');
 }
 .facebook-hover {
-	background-image: url('../images/facebook-hover.png');
+    background-image: url('../images/facebook-hover.png');
 }
 .google-hover {
-	background-image: url('../images/google-hover.png');
+    background-image: url('../images/google-hover.png');
 }
 .linkedin-hover {
-	background-image: url('../images/linkedin-hover.png');
+    background-image: url('../images/linkedin-hover.png');
 }
 .tumblr-hover {
-	background-image: url('../images/tumblr-hover.png');
+    background-image: url('../images/tumblr-hover.png');
 }
 .instagram-hover {
-	background-image: url('../images/instagram-hover.png');
+    background-image: url('../images/instagram-hover.png');
 }
 .stumbleupon-hover {
-	background-image: url('../images/stumbleupon-hover.png');
+    background-image: url('../images/stumbleupon-hover.png');
 }
 .rss-hover {
-	background-image: url('../images/rss-hover.png');
+    background-image: url('../images/rss-hover.png');
 }
 
 /* SUBMIT BUTTON */
 
 button {
-  position:relative;
-  margin-top:5%;
-  margin-left: 17%;
-  background:#808080;
-  border:2px solid white;
-  padding:20px;
-  font-size:0.9em;
-  color:white;
-  font-family: 'Open Sans', sans-serif;
-  font-weight:700;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  
+    position:relative;
+    margin-top:5%;
+    background:#808080;
+    border:2px solid white;
+    padding:15px;
+    width: 215px;
+    font-size:0.9em;
+    color:white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
 }
 
 button:hover {
-  left:1px;
-  top:1px;
-  box-shadow:none;
-  background:#FFaa00;
-  transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -webkit-transition: all .2s ease-in-out;
+    left:1px;
+    top:1px;
+    box-shadow:none;
+    background:#FFaa00;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
 }
