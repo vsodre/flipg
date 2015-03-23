@@ -1,80 +1,12 @@
-(function(){
-    var app = angular.module("mockup", []);
-    
-    app.controller('DashboardController', function(){
-       this.feeds=[
-           {
-               title:"Lorem ipsum",
-               text:"Lorem ipsum dolor sit amet, perfecto quaestio posidonium quo cu, illud conclusionemque ius et, an mei elit aeque malorum. Scripta vulputate no duo. Ei nominavi elaboraret ullamcorper sit, vis partem omnium oporteat ea. Utamur eruditi in vel, nam malorum quaerendum ut, in eam habeo dolorum. Qui ut meis iuvaret invenire, ea novum menandri sed.Affert meliore elaboraret et quo, audire invidunt at has, eu debet tollit per. Ad sonet laoreet definitionem est. Stet animal referrentur eu qui. At falli salutatus usu. Ea pertinax percipitur delicatissimi qui. No mel augue appellantur."
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           },
-           {
-               title:"Oi como vai?",
-               text:"Tudo bem e vc?"
-           }
-       ];         
-    });
+(function () {
+    var app = angular.module("mockup", ['ngTouch']);
+    app.controller('DashboardController', ['$http', function (http) {
+        var dashboard = this;
+        dashboard.feeds = [];
+        dashboard.menuState = false;
+        dashboard.toggleMenu = function(){
+           dashboard.menuState = !dashboard.menuState; 
+        };
+        http.get('data/only-text.json').success(function(data){dashboard.feeds = data});
+    }]);
 })();
