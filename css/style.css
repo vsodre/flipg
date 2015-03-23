@@ -1,3 +1,6 @@
+.visible{
+    display: block;
+}
 body{
     background-color: #EFEBF3;
 }
@@ -324,12 +327,10 @@ p {
 }
 
 #dashboard-menu{
-    width: 280px;
     position: fixed;
     z-index: 1030;
     background: #FFFFFF;
     right: 0;
     top: 0;
     bottom: 0;
-    padding-top: 70px;
 }

@@ -17,39 +17,33 @@
 
     </head>
 
-    <body ng-controller="DashboardController as dashboard">[]);
-        <nav id="dashboard-menu" ng-show="dashboard.menuState">
-            <div class="container-fluid">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Account Settings</h3>
+    <body ng-controller="DashboardController as dashboard" ng-swipe-left="dashboard.menuState = true" ng-swipe-right="dashboard.menuState = false" ng-swipe-disable-mouse>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                            <a href="#" class="list-group-item">Morbi leo risus</a>
-                            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item">Vestibulum at eros</a>
-                        </div>
+                    <div class="modal-body">
+                        ...
                     </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Dashboard Settings</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                            <a href="#" class="list-group-item">Morbi leo risus</a>
-                            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                            <a href="#" class="list-group-item">Vestibulum at eros</a>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="sidebar col-sm-8 col-xs-8 col-md-3 col-lg-3" id="dashboard-menu" ng-show="dashboard.menuState">
+            <ul class="nav nav-sidebar navbar-spacer">
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Account</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="#">Filters</a></li>
+            </ul>
+        </div>
 
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -60,27 +54,40 @@
                     </button>
                     <a class="navbar-brand" href="#">FlipG</a>
                 </div>
-                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <button type="button" ng-class="{active:dashboard.menuState}" ng-click="dashboard.toggleMenu()" class="btn btn-default navbar-btn">
-                                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                            </button>
-                        </li>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+                        <li ng-class="{active:dashboard.menuState}"><a href="#" ng-click="dashboard.toggleMenu()"><span class="glyphicon glyphicon-menu-hamburger"></span></a></li>
                     </ul>
+                    <form class="navbar-form">
+                        <div class="form-group" style="margin-left: 5%;">
+                            <div class="input-group" >
+                                <span class="input-group-addon" style="width:3.5%;"><span class="glyphicon glyphicon-search"></span></span>
+                                <input class="form-control" name="search" placeholder="Search Here" autocomplete="off" autofocus="autofocus" type="text">
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </nav>
 
         <div class="container navbar-spacer">
-            <ul class="grid row">
-                <li ng-repeat="feed in dashboard.feeds" class="class1">
-                    <div>
-                        <h3>{{feed.title}}</h3>
-                        <p>{{feed.text}}</p>
-                    </div>
-                </li>
-            </ul>
+            <div class="row">
+                <div id="dashboard-tabs">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" ng-repeat="f in dashboard.filters" ng-click="dashboard.setActiveFilter($index)" ng-class="{active:dashboard.isActive($index)}"><a href="#">{{f.name}}</a></li>
+                    </ul>
+                </div>
+                <div class="main">
+                    <ul class="grid">
+                        <li ng-repeat="feed in dashboard.feeds" class="class1">
+                            <div>
+                                <h3>{{feed.title}}</h3>
+                                <p>{{feed.text}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <script type="text/javascript" src="js/angular.js"></script>
         <script type="text/javascript" src="js/angular-touch.js"></script>
