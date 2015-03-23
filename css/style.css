@@ -7,7 +7,7 @@ body{
 .grid > li {
   position: relative;
   float: left;
-  width: 274px;
+  width: 282px;
   overflow: hidden;
   margin: 5px;
   -webkit-animation-fill-mode: both;
@@ -333,4 +333,13 @@ p {
     right: 0;
     top: 0;
     bottom: 0;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background: #360358;
+    color: #fff;
+}
+
+a{
+    color: #360358;
 }

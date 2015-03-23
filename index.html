@@ -38,20 +38,13 @@
         <div class="sidebar col-sm-8 col-xs-8 col-md-3 col-lg-3" id="dashboard-menu" ng-show="dashboard.menuState">
             <ul class="nav nav-sidebar navbar-spacer">
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Account</a></li>
-                <li><a href="#">Subscribe</a></li>
-                <li><a href="#">Filters</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Channels</a></li>
             </ul>
         </div>
 
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="#">FlipG</a>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -73,7 +66,7 @@
         <div class="container navbar-spacer">
             <div class="row">
                 <div id="dashboard-tabs">
-                    <ul class="nav nav-tabs">
+                    <ul class="nav nav-pills">
                         <li role="presentation" ng-repeat="f in dashboard.filters" ng-click="dashboard.setActiveFilter($index)" ng-class="{active:dashboard.isActive($index)}"><a href="#">{{f.name}}</a></li>
                     </ul>
                 </div>

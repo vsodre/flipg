@@ -4,7 +4,7 @@
         var dashboard = this;
         dashboard.activeFilter = 0;
         dashboard.menuState = false;
-        dashboard.filters = [{"name":"All"}, {"name":"Personal Filter 1"}, {"name":"Personal Filter 2"}, {"name":"Personal Filter 3"}];
+        dashboard.filters = [{"name":"All"}, {"name":"News"}, {"name":"Photos"}, {"name":"Videos"}];
         dashboard.feeds = [];
         dashboard.isActive = function(i){
             return i == dashboard.activeFilter;
