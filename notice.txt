@@ -1,0 +1,3 @@
+This code was typed by me using a tutorial found at: http://www.wikihow.com/Create-a-Secure-Login-Script-in-PHP-and-MySQL.
+
+This was absolutely necessary as I have zero experience with PHP or MySQL and I needed to find a starting point.
