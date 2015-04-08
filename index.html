@@ -13,45 +13,13 @@
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
     </head>
 
     <body ng-controller="DashboardController as dashboard">
-        <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="My Account" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Account</h4>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="channelsModal" tabindex="-1" role="dialog" aria-labelledby="My Subscriptions" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">My Channels</h4>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -80,12 +48,12 @@
             <div class="row">
                 <div id="dashboard-tabs">
                     <ul class="nav nav-pills">
-                        <li role="presentation" ng-repeat="f in dashboard.filters" ng-click="dashboard.setActiveFilter($index)" ng-class="{active:dashboard.isActive($index)}"><a href="#">{{f.name}}</a></li>
+                        <li role="presentation"  ng-repeat="f in dashboard.filters" ng-click="dashboard.setActiveFilter($index)" ng-class="{active:dashboard.isActive($index)}"><a href="#">{{f.name}}</a></li>
                     </ul>
                 </div>
                 <div class="main">
                     <ul class="grid">
-                        <li ng-repeat="feed in dashboard.feeds" class="class1">
+                        <li ng-repeat="feed in dashboard.feeds" class="bg-primary">
                             <div>
                                 <h3>{{feed.title}}</h3>
                                 <p>{{feed.text}}</p>
@@ -95,6 +63,43 @@
                 </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="MyAccount" aria-hidden="true">
+            <div class="modal-dialog" style="z-index: 2020;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Account</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="channelsModal" tabindex="-1" role="dialog" aria-labelledby="MySubscriptions" aria-hidden="true">
+            <div class="modal-dialog" style="z-index: 2020;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">My Channels</h4>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script type="text/javascript" src="js/angular.js"></script>
         <script type="text/javascript" src="js/angular-touch.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
@@ -105,13 +110,6 @@
                         placement:"bottom",
                         content:"<ul class=\"nav nav-sidebar\"><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#accountModal\">Account</a></li><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#channelsModal\">Channels</a></li></ul>",
                         html:true });
-                    $('#menu-button').click(function(){
-                        if($('#menu-button').hasClass("active")){
-                            $('#menu-button').removeClass("active");
-                        } else {
-                            $('#menu-button').addClass("active");
-                        }
-                    });
                 });
         </script>
     </body></html>
