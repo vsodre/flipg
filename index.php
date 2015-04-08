@@ -5,7 +5,7 @@ include_once 'include/operations.php';
 sec_session_start();
  
  //check if the user is logged in
-if (login_check($mysqli) == true) {
+if (login_check($mongo) == true) {
     $logged = 'in';
 } else {
     $logged = 'out';
@@ -44,7 +44,7 @@ if (login_check($mysqli) == true) {
 
 <?php
 	//Display different tools based on whether or not the user is logged in
-        if (login_check($mysqli) == true) {
+        if (login_check($mongo) == true) {
                         echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
  
             echo '<p>Do you want to change user? <a href="include/logout.php">Log out</a>.</p>';

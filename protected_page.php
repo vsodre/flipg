@@ -13,7 +13,7 @@ sec_session_start();
     </head>
     <body>
 	<div class="content">
-        <?php if (login_check($mysqli) == true) : ?>
+        <?php if (login_check($mongo) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
             <p>
 			  <img src="include/orig.jpg"></img><br>

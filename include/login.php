@@ -8,7 +8,7 @@ if (isset($_POST['email'], $_POST['p'])) {
     $email = $_POST['email'];
     $password = $_POST['p']; // Secured password
  
-    if (login($email, $password, $mysqli) == true) {
+    if (login($email, $password, $mongo) == true) {
         // Login success 
         header('Location: ../protected_page.php');
     } else {
