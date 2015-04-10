@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Registered</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/style.css" />
     </head>
     <body>
         <h1>You are now registered.</h1>

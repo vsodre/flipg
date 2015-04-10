@@ -5,7 +5,7 @@ include_once 'include/operations.php';
 sec_session_start();
  
  //check if the user is logged in
-if (login_check($mongo) == true) {
+if (login_check($mysqli) == true) {
     $logged = 'in';
 } else {
     $logged = 'out';
@@ -15,7 +15,7 @@ if (login_check($mongo) == true) {
 <html>
     <head>
         <title>login page</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/style.css" />
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script> 
     </head>
@@ -44,7 +44,7 @@ if (login_check($mongo) == true) {
 
 <?php
 	//Display different tools based on whether or not the user is logged in
-        if (login_check($mongo) == true) {
+        if (login_check($mysqli) == true) {
                         echo '<p>Currently logged ' . $logged . ' as ' . htmlentities($_SESSION['username']) . '.</p>';
  
             echo '<p>Do you want to change user? <a href="include/logout.php">Log out</a>.</p>';

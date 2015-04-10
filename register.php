@@ -9,7 +9,7 @@ include_once 'include/operations.php';
         <title>Registration Page</title>
         <script type="text/JavaScript" src="js/sha512.js"></script> 
         <script type="text/JavaScript" src="js/forms.js"></script>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/style.css" />
     </head>
     <body>
 		<div class="login-card">

@@ -9,11 +9,11 @@ sec_session_start();
     <head>
         <meta charset="UTF-8">
         <title>Secure Login: Protected Page</title>
-        <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/style.css" />
     </head>
     <body>
 	<div class="content">
-        <?php if (login_check($mongo) == true) : ?>
+        <?php if (login_check($mysqli) == true) : ?>
             <p>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</p>
             <p>
 			  <img src="include/orig.jpg"></img><br>

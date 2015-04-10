@@ -24,7 +24,7 @@ function sec_session_start() {
     session_regenerate_id(true);    // regenerated the session, delete the old one. 
 }
 
-function login($email, $password, $mongo) {
+function login($email, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
         FROM members
@@ -44,7 +44,7 @@ function login($email, $password, $mongo) {
             // If the user exists we check if the account is locked
             // from too many login attempts 
  
-            if (checkbrute($user_id, $mongo) == true) {
+            if (checkbrute($user_id, $mysqli) == true) {
                 // Account is locked 
                 // Send an email to user saying their account is locked
                 return false;
@@ -83,14 +83,14 @@ function login($email, $password, $mongo) {
     }
 }
 
-function checkbrute($user_id, $mongo) {
+function checkbrute($user_id, $mysqli) {
     // Get timestamp of current time 
     $now = time();
  
     // All login attempts are counted from the past 2 hours. 
     $valid_attempts = $now - (2 * 60 * 60);
  
-    if ($stmt = $mongo->prepare("SELECT time 
+    if ($stmt = $mysqli->prepare("SELECT time 
                              FROM login_attempts 
                              WHERE user_id = ? 
                             AND time > '$valid_attempts'")) {
@@ -109,7 +109,7 @@ function checkbrute($user_id, $mongo) {
     }
 }
 
-function login_check($mongo) {
+function login_check($mysqli) {
     // Check if all session variables are set 
     if (isset($_SESSION['user_id'], 
                         $_SESSION['username'], 
@@ -122,7 +122,7 @@ function login_check($mongo) {
         // Get the user-agent string of the user.
         $user_browser = $_SERVER['HTTP_USER_AGENT'];
  
-        if ($stmt = $mongo->prepare("SELECT password 
+        if ($stmt = $mysqli->prepare("SELECT password 
                                       FROM members 
                                       WHERE id = ? LIMIT 1")) {
             // Bind "$user_id" to parameter. 

@@ -1,9 +1,9 @@
 <?php
 //database connection information
-define("HOST", "ds061631.mongolab.com:61631/secure_login");   
-define("USER", "sec_user");    
-define("PASSWORD", "eKcGZr59zAa2BEWU");   
-define("DATABASE", "secure_login");   
+define("HOST", "sql3.freemysqlhosting.net");   
+define("USER", "sql373646");    
+define("PASSWORD", "uY4%wK3*");   
+define("DATABASE", "sql373646");   
  
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");

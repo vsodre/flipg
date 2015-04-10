@@ -8,9 +8,9 @@ if (isset($_POST['email'], $_POST['p'])) {
     $email = $_POST['email'];
     $password = $_POST['p']; // Secured password
  
-    if (login($email, $password, $mongo) == true) {
+    if (login($email, $password, $mysqli) == true) {
         // Login success 
-        header('Location: ../protected_page.php');
+        header('Location: ../index2.php');
     } else {
         // Login failed 
         header('Location: ../index.php?error=1');
