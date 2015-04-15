@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="mockup" lang="en">
     <head>
-        <title>Login page</title>
+        <title>Password page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +24,6 @@
                             FlipG
                         </a>
                     </div>
-                    <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/auth/register">Signup</a></li>
-                        </ul>
-                    </div>
                 </div>
             </nav>
             <div class="container navbar-spacer">
@@ -47,12 +42,13 @@
 
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form class="" role="form" method="POST" action="<?php echo url('/auth/login') ?>">
-                                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                                <form role="form" method="POST" action="<?php echo url('/password/reset'); ?>">
+                                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                                    <input type="hidden" name="token" value="<?php echo $token; ?>">
 
                                     <div class="form-group form-group-lg">
                                         <label>E-Mail Address</label>
-                                        <input type="email" class="form-control" name="email" value="<?php echo old('email') ?>">
+                                        <input type="email" class="form-control" name="email" value="<?php echo old('email'); ?>">
                                     </div>
 
                                     <div class="form-group form-group-lg">
@@ -60,21 +56,15 @@
                                         <input type="password" class="form-control" name="password">
                                     </div>
 
-                                    <div class="form-group">
-                                        <div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="remember"> Remember Me
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="form-group form-group-lg">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                                        <label>Confirm Password</label>
+                                        <input type="password" class="form-control" name="password_confirmation">
                                     </div>
-                                    <div class="form-group">
-                                        <a class="btn btn-link" href="<?php echo url('/password/email') ?>">Forgot Your Password?</a>
-                                        <a class="btn btn-link" href="<?php echo url('/auth/register') ?>">I'm not a user.</a>
+
+                                    <div class="form-group form-group-sm">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                            Reset Password
+                                        </button>
                                     </div>
                                 </form>
                             </div>

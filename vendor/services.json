@@ -23,6 +23,7 @@
         "Illuminate\\Validation\\ValidationServiceProvider",
         "Illuminate\\View\\ViewServiceProvider",
         "Jenssegers\\Mongodb\\MongodbServiceProvider",
+        "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider",
         "App\\Providers\\AppServiceProvider",
         "App\\Providers\\BusServiceProvider",
         "App\\Providers\\ConfigServiceProvider",
@@ -121,8 +122,8 @@
         "command.queue.subscribe": "Illuminate\\Queue\\QueueServiceProvider",
         "queue.connection": "Illuminate\\Queue\\QueueServiceProvider",
         "redis": "Illuminate\\Redis\\RedisServiceProvider",
-        "auth.password": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
-        "auth.password.tokens": "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
+        "auth.password": "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider",
+        "auth.password.tokens": "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider",
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
         "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider"
     },
@@ -158,6 +159,9 @@
 
         ],
         "Illuminate\\Translation\\TranslationServiceProvider": [
+
+        ],
+        "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider": [
 
         ]
     }

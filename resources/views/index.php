@@ -19,11 +19,11 @@
     </head>
 
     <body ng-controller="DashboardController as dashboard">
-        
+
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" id="navbar-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">FlipG</a>
+                    <a class="navbar-brand" href="/">FlipG</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <form class="navbar-form navbar-left" style="margin-left: 4%; width: 87%;">
@@ -63,7 +63,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="MyAccount" aria-hidden="true">
             <div class="modal-dialog" style="z-index: 2020;">
                 <div class="modal-content">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal fade" id="channelsModal" tabindex="-1" role="dialog" aria-labelledby="MySubscriptions" aria-hidden="true">
             <div class="modal-dialog" style="z-index: 2020;">
                 <div class="modal-content">
@@ -99,17 +99,16 @@
                 </div>
             </div>
         </div>
-        
+
         <script type="text/javascript" src="js/angular.js"></script>
         <script type="text/javascript" src="js/angular-touch.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script>$(function () {
-                    $('[data-toggle="popover"]').popover({
-                        placement:"bottom",
-                        content:"<ul class=\"nav nav-sidebar\"><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#accountModal\">Account</a></li><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#channelsModal\">Channels</a></li></ul>",
-                        html:true });
-                });
-        </script>
+                                            $('[data-toggle="popover"]').popover({
+                                            placement:"bottom",
+                                                    content:"<ul class=\"nav nav-sidebar\"><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#accountModal\">Account</a></li><li><a href=\"#\" data-toggle=\"modal\" data-target=\"#channelsModal\">Channels</a></li><li><a href=\"/auth/logout\">Logout</a></li></ul>",
+                                                    html:true });
+                                            });        </script>
     </body></html>

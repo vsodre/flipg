@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => env('APP_DEBUG', false),
+	'debug' => env('APP_DEBUG', TRUE),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -136,7 +136,7 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Jenssegers\Mongodb\MongodbServiceProvider',
-
+		'Jenssegers\Mongodb\Auth\PasswordResetServiceProvider',
 		/*
 		 * Application Service Providers...
 		 */

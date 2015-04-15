@@ -26,7 +26,7 @@
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/auth/register">Signup</a></li>
+                            <li><a href="/auth/login">Signin</a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,9 +47,12 @@
 
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <form class="" role="form" method="POST" action="<?php echo url('/auth/login') ?>">
+                                <form class="" role="form" method="POST" action="<?php echo url('/auth/register') ?>">
                                     <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-
+                                    <div class="form-group form-group-lg">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control" name="name" value="<?php echo old('name') ?>">
+                                    </div>
                                     <div class="form-group form-group-lg">
                                         <label>E-Mail Address</label>
                                         <input type="email" class="form-control" name="email" value="<?php echo old('email') ?>">
@@ -60,21 +63,12 @@
                                         <input type="password" class="form-control" name="password">
                                     </div>
 
-                                    <div class="form-group">
-                                        <div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="remember"> Remember Me
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="form-group form-group-lg">
+                                        <label>Confirm Password</label>
+                                        <input type="password" class="form-control" name="password_confirmation">
                                     </div>
                                     <div class="form-group form-group-lg">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
-                                    </div>
-                                    <div class="form-group">
-                                        <a class="btn btn-link" href="<?php echo url('/password/email') ?>">Forgot Your Password?</a>
-                                        <a class="btn btn-link" href="<?php echo url('/auth/register') ?>">I'm not a user.</a>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
                                     </div>
                                 </form>
                             </div>
