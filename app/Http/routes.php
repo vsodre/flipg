@@ -30,5 +30,5 @@ Route::get('/data.json', function() {
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
-    'dashboard' => 'Dashboard',
+    'dashboard' => 'Dashboard'
 ]);
