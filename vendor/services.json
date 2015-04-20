@@ -28,7 +28,8 @@
         "App\\Providers\\BusServiceProvider",
         "App\\Providers\\ConfigServiceProvider",
         "App\\Providers\\EventServiceProvider",
-        "App\\Providers\\RouteServiceProvider"
+        "App\\Providers\\RouteServiceProvider",
+        "willvincent\\Feeds\\FeedsServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -125,7 +126,8 @@
         "auth.password": "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider",
         "auth.password.tokens": "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider",
         "translator": "Illuminate\\Translation\\TranslationServiceProvider",
-        "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider"
+        "translation.loader": "Illuminate\\Translation\\TranslationServiceProvider",
+        "Feeds": "willvincent\\Feeds\\FeedsServiceProvider"
     },
     "when": {
         "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider": [
@@ -162,6 +164,9 @@
 
         ],
         "Jenssegers\\Mongodb\\Auth\\PasswordResetServiceProvider": [
+
+        ],
+        "willvincent\\Feeds\\FeedsServiceProvider": [
 
         ]
     }

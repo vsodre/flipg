@@ -27,8 +27,19 @@ Route::get('/data.json', function() {
     return response()->json($posts);
 });
 
+Route::get('collect', function(){
+    $feed = \Feeds::make('http://jovemnerd.com.br/rss');
+    $ret = "";
+    foreach($feed->get_items() as $item)
+    {
+        $ret .= $item->get_title()."<br/>";
+    }
+    return $ret;
+});
+
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
     'dashboard' => 'Dashboard'
+
 ]);
