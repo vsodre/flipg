@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Response;
+use App\User;
 
 /*
   |--------------------------------------------------------------------------
@@ -20,11 +21,19 @@ Route::get('/', function() {
 });
 
 Route::get('/data.json', function() {
-    $cursor = DB::getCollection('posts')->find(); //official communication proccess
+    //$cursor = DB::getCollection('posts')->find(); //official communication proccess
+	$cursor = User::raw()->find();
     $posts = [];
     foreach ($cursor as $d)
         $posts[] = $d;
     return response()->json($posts);
+});
+
+Route::get('/user.data', function(){
+	$user = Auth::user();
+	$user->teste = array("ab", "cd", "ef");
+	$user->save();
+	return print_r(($user->teste),true);
 });
 
 Route::controllers([
