@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-        <title>Jumbotron Template for Bootstrap</title>
+        <title>FlipG Dashboard</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">

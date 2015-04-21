@@ -30,7 +30,7 @@ Route::get('/user.data', function(){
 	$user = Auth::user();
 	$user->teste = array("ab", "cd", "ef");
 	$user->save();
-	return print_r(($user->teste),true);
+	return var_dump(($user),true);
 });
 Route::get('collect', function(){
     $feed = \Feeds::make('http://jovemnerd.com.br/rss');
@@ -44,6 +44,6 @@ Route::get('collect', function(){
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
-    'dashboard' => 'Dashboard'
-
+    'dashboard' => 'Dashboard',
+    'profile' => 'Profile'
 ]);

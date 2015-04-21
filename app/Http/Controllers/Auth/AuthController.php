@@ -1,13 +1,14 @@
-<?php
-
-namespace App\Http\Controllers\Auth;
+<?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller {
+
     /*
       |--------------------------------------------------------------------------
       | Registration & Login Controller
@@ -29,6 +30,24 @@ class AuthController extends Controller {
 
     public function getRegister() {
         return view("register");
+    }
+
+    public function postRegister(Request $request) {
+        $validator = $this->registrar->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                    $request, $validator
+            );
+        } elseif (User::where('email', '=', $request->input('email'))->count()) {
+            return redirect()->to('/auth/register')
+                            ->withInput($request->input())
+                            ->withErrors(['error'=>['E-mail address already registered.']], 'default');
+        }
+
+        $this->auth->login($this->registrar->create($request->all()));
+
+        return redirect($this->redirectPath());
     }
 
     /**
