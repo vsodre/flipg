@@ -18,7 +18,7 @@ class Dashboard extends Controller {
      * @return Response
      */
     public function getIndex() {
-        return view('index');
+        return view('index')->with('name', \Auth::user()->name);
     }
 
     /**

@@ -1,15 +1,11 @@
-<?php
-
-namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\Auth\Registrar;
+use Validator;
 
 class Profile extends Controller {
 
-    private $registrar;
     private $user;
 
     /**
@@ -18,23 +14,26 @@ class Profile extends Controller {
      * @return Response
      */
     public function getIndex() {
-        return response()->json($this->user);
+        return response()->json(['error' => 0, 'result' => $this->user]);
     }
 
     public function postIndex(Request $r) {
-        $validator = $this->registrar->validator($r->all());
-
-        if (!$validator->fails()) {
-            $new = $this->registrar->create($r->all());
-            $this->user->name = $new->name;
-            $this->user->password = $new->password;
-            $this->user->save();
+        $val['name'] = 'required|max:255';
+        if($r->input('password')){
+            $val['password'] = 'required|confirmed|min:6';
+            $this->user->password = bcrypt($r->input('password'));
         }
-        return redirect('profile');
+        $validator = Validator::make($r->all(), $val);
+        if(!$validator->fails()){
+            $this->user->name = $r->input('name');
+            $this->user->save();
+            return response()->json(['error' => 0, 'result' => $this->user]);
+        } else {
+            return response()->json(['error' => 1, 'result' => $validator->errors()->getMessages()]);
+        }
     }
 
-    public function __construct(Registrar $registrar) {
-        $this->registrar = $registrar;
+    public function __construct() {
         $this->middleware('auth');
         $this->user = \Auth::user();
     }
