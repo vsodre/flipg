@@ -47,9 +47,7 @@ class Collect extends Command
     {
         $elems_to_insert = array();
         foreach($feed->get_items() as $item)
-        {
             $elems_to_insert[] = $this->create_post_doc($item, $channelid);
-        }
         return $elems_to_insert;
     }
     
@@ -61,19 +59,22 @@ class Collect extends Command
             I check by the permalink only if the post don't have a pubdate field on the rss file.
         */
         
+        $channelDate = strtotime($channelLastDate);
         $elems_to_insert = array();
         foreach($feed->get_items() as $item)
         {
+            // I check if I added this post before by the date or by the permalink, in case there is no date.
             if($item->get_local_date() != NULL)
             {
-                if($item->get_local_date() > $channelLastDate)
+                $itemDate = strtotime($item->get_local_date());
+                if($itemDate > $channelDate)
                     $elems_to_insert[] = $this->create_post_doc($item, $channelid);
                 else break;
             }
             else
             {
                 $docQuery = array('permalink' => $item->get_permalink());
-                if(\DB::getCollection("posts_collection")->findOne($docQuery) == NULL)
+                if(\DB::getCollection('posts_collection')->findOne($docQuery) == NULL)
                     $elems_to_insert[] = $this->create_post_doc($item, $channelid);
                 else break;
             }
@@ -97,12 +98,11 @@ class Collect extends Command
         foreach($cursor as $channel)
         {
             $sp = \App::make('Feeds');
-            $feed = $sp->make($channel->_id); // The _id is the link of the feedi
-            
+            $feed = $sp->make($channel->_id); // The _id is the link of the feed
             $last_date_collected = date('Y-m-d H:i:s', $channel->last_date_collected->sec);
-            echo $last_date_collected;
+            
             // If there is no post of this channel on the database, I add everything on it.
-            if(\DB::getCollection("posts_collection")->count(array("channel" => $channel->_id) == 0))
+            if(\DB::getCollection('posts_collection')->count(array("channel" => $channel->_id)) == 0)
                 $elems_to_insert = $this->insert_first_time($feed, $channel->_id);
             else
                 $elems_to_insert = $this->insert($feed, $channel->_id, $last_date_collected);
@@ -111,7 +111,6 @@ class Collect extends Command
             {
                 \DB::getCollection("posts_collection")->batchInsert($elems_to_insert);
                 
-                echo "ADDED\n";
                 $changedChannel = Channel::find($channel->_id);
                 $changedChannel->last_date_collected = new \MongoDate(strtotime(date("Y-m-d H:i:s")));
                 $changedChannel->save();
