@@ -36,6 +36,7 @@ class Collect extends Command
     {
         //TODO: Add type and metadata to the document
         $doc = array("channel"       => $channelId,
+                     "title"         => $item->get_title(),
                      "publish_date"  => $item->get_local_date(),
                      "body"          => $item->get_description(),
                      "permalink"     =>  $item->get_permalink());
