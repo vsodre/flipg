@@ -90,7 +90,7 @@ class Collect extends Command
 	public function fire()
 	{
         /* Using https://github.com/willvincent/feeds */
-         
+              
         $cursor = Channel::all();
         $elems_to_insert = array();
         
