@@ -20,27 +20,27 @@ Route::get('/', function() {
 });
 Route::get('/data.json', function() {
     //$cursor = DB::getCollection('posts')->find(); //official communication proccess
-	$cursor = User::raw()->find();
+    $cursor = User::raw()->find();
     $posts = [];
     foreach ($cursor as $d)
         $posts[] = $d;
     return response()->json($posts);
 });
-Route::get('/user.data', function(){
-	$user = Auth::user();
-	$user->teste = array("ab", "cd", "ef");
-	$user->save();
-	return var_dump(($user),true);
+Route::get('/user.data', function() {
+    $user = Auth::user();
+    $user->teste = array("ab", "cd", "ef");
+    $user->save();
+    return var_dump(($user), true);
 });
-Route::get('collect', function(){
+Route::get('collect', function() {
     $feed = \Feeds::make('http://jovemnerd.com.br/rss');
     $ret = "";
-    foreach($feed->get_items() as $item)
-    {
-        $ret .= $item->get_title()."<br/>";
+    foreach ($feed->get_items() as $item) {
+        $ret .= $item->get_title() . "<br/>";
     }
     return $ret;
 });
+Route::post('dashboard/feeds/{page}', 'Dashboard@get_feeds')->where('page', '[0-9]+');
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

@@ -89,7 +89,7 @@ class Collect extends Command
 	{
         /* Using https://github.com/willvincent/feeds */
         
-        $cursor = \DB::getCollection("channel")->find();
+        $cursor = \DB::getCollection("channels_collection")->find();
         $elems_to_insert = array();
         
         // Foreach channel present at mongodb
