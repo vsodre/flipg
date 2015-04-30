@@ -31,7 +31,6 @@ class Crawler {
         $this->channel->link = $this->feed->get_permalink();
         $this->channel->description = $this->feed->get_description();
         $this->channel->_id = $id;
-        ;
         $this->channel->last_date_collected = NULL;
         $this->channel->save();
     }
@@ -48,7 +47,7 @@ class Crawler {
         //TODO: Add type and metadata to the document
         $doc = array("channel" => $channelId,
             "title" => html_entity_decode($item->get_title()),
-            "publish_date" => $item->get_date('Y-m-d G:i:s'),
+            "publish_date" => $item->get_date('Y-m-d H:i:s'),
             "body" => $this->str_truncate(strip_tags(html_entity_decode($item->get_description()))),
             "permalink" => $item->get_permalink());
         return $doc;
@@ -108,7 +107,7 @@ class Crawler {
 
         if (count($elems_to_insert) > 0) {
             Post::raw()->batchInsert($elems_to_insert);
-
+            
             $this->channel->last_date_collected = new \MongoDate(strtotime(date("Y-m-d H:i:s")));
             $this->channel->save();
         }

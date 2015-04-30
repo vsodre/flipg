@@ -38,7 +38,7 @@ Route::get('collect', function() {
     }
     return $ret;
 });
-Route::post('dashboard/feeds/{page}', 'Dashboard@get_feeds')->where('page', '[0-9]+');
+Route::post('dashboard/feeds/{page}', 'dashboard@get_feeds')->where('page', '[0-9]+');
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

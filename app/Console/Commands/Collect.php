@@ -46,7 +46,7 @@ class Collect extends Command
         // Foreach channel present at mongodb
         foreach($cursor as $channel)
         {
-            $crawler = new Crawler($channel->_id);
+            $crawler = new Crawler($channel);
             $crawler->updateItems();
         }
 	}

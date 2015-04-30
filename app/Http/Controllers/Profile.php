@@ -43,7 +43,7 @@ class Profile extends Controller {
             return response()->json(['error' => 1, 'result' => $validator->errors()->getMessages()]);
         } else {
             $channel = \App\Services\Channel::lookup($r->input('address'));
-            $channels = $this->user->channels;
+            $channels = (is_array($this->user->channels)?$this->user->channels:[]);
             if (!\in_array($channel->_id, $channels))
                 $channels[] = $channel->_id;
             $this->user->channels = $channels;
