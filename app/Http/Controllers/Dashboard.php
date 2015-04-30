@@ -20,11 +20,13 @@ class Dashboard extends Controller {
     }
 
     public function get_feeds(Request $r, $page) {
-        $cursor = \App\Post::raw()->find()->skip($page * 50)->limit(50);
-        $feeds = [];
-        foreach ($cursor as $data)
-            $feeds[] = $data;
-        return response()->json(['error'=>0, 'result'=>$feeds]);
+        $channels = \Auth::user()->channels;
+        $condition = [];
+        foreach ($channels as $c){
+            $condition['$or'][] = ['channel' => $c];
+        }
+        $cursor = \App\Post::raw()->find($condition)->sort(['publish_date' => -1])->skip($page * 50)->limit(50);
+        return response()->json(['error'=>0, 'result'=>  iterator_to_array($cursor, false)]);
     }
 
 }

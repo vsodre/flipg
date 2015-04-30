@@ -54,13 +54,13 @@
                             ng-class="{active:dashboard.isActive($index)}"><a href="#">{{f.name}}</a></li>
                     </ul>
                 </div>
-                <div class="main" infinite-scroll-distance="3">
-                    <ul class="grid" infinite-scroll="dashboard.moreFeed()">
+                <div class="main">
+                    <ul class="grid" infinite-scroll="dashboard.moreFeed()" infinite-scroll-distance="3">
                         <li ng-repeat="feed in dashboard.feeds" class="bg-primary">
                             <div>
-                                <h3>{{feed.title}}</h3>
+                                <h3><a href="{{feed.permalink}}" target="_blank">{{feed.title}}</a></h3>
 
-                                <p>{{feed.body}}</p>
+                                <p><a href="{{feed.permalink}}" target="_blank">{{feed.body}}</a></p>
                             </div>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="modal-body">
                         <form class="" name="form_profle" role="form" ng-controller="ProfileController as ProfileCtrl" ng-submit="ProfileCtrl.submit()">
-                            <div class="alert {{ProfileCtrl.alert.type}}" ng-hide="ProfileCtrl.alert.hide" role="alert">{{ProfileCtrl.alert.message}}</div>
+                            <div class="alert {{ProfileCtrl.alert.type}} alert-dismissable" ng-hide="ProfileCtrl.alert.hide" role="alert">{{ProfileCtrl.alert.message}}</div>
 
                             <div class="form-group form-group-lg">
                                 <label>Name</label>
@@ -115,12 +115,26 @@
                                 aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">My Channels</h4>
                     </div>
-                    <div class="modal-body">
-                        ...
+                    <div class="modal-body" ng-controller="ChannelsController as ChannelCtrl">
+                        <form class="form-inline" name="form_profle" role="form" ng-submit="ChannelCtrl.submit(dashboard)" ng-init="ChannelCtrl.load()">
+                            <div class="alert {{ChannelCtrl.alert.type}} alert-dismissable" ng-hide="ChannelCtrl.alert.hide" role="alert">{{ChannelCtrl.alert.message}}</div>
+
+                            <div class="form-group form-group-lg">
+                                <label>Address</label>
+                                <input type="text" ng-model="ChannelCtrl.channel.address" class="form-control" name="address">
+                            </div>
+                            <div class="form-group form-group-lg">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+                            </div>
+                        </form>
+                        <table class="table" style="margin-top: 3em;">
+                            <tr ng-repeat="c in ChannelCtrl.channels track by $index">
+                                <td>{{c}}</td>
+                                <td><button class="btn btn-primary btn-block btn-sm" ng-click="ChannelCtrl.unsubscribe($index, dashboard)">unsubscribe</button></td></tr>
+                        </table>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>

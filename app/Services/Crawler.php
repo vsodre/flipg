@@ -35,13 +35,21 @@ class Crawler {
         $this->channel->last_date_collected = NULL;
         $this->channel->save();
     }
+    
+    protected function str_truncate($str){
+        if(strlen($str) > 180){
+            return mb_substr($str, 0, 180, 'UTF-8'). '...';
+        } else {
+            return $str;
+        }
+    }
 
     protected function create_post_doc($item, $channelId) {
         //TODO: Add type and metadata to the document
         $doc = array("channel" => $channelId,
-            "title" => $item->get_title(),
-            "publish_date" => $item->get_local_date(),
-            "body" => $item->get_description(),
+            "title" => html_entity_decode($item->get_title()),
+            "publish_date" => $item->get_date('Y-m-d G:i:s'),
+            "body" => $this->str_truncate(strip_tags(html_entity_decode($item->get_description()))),
             "permalink" => $item->get_permalink());
         return $doc;
     }
@@ -88,8 +96,6 @@ class Crawler {
      * @return mixed
      */
     public function updateItems() {
-        /* Using https://github.com/willvincent/feeds */
-
         $elems_to_insert = array();
 
         // If there is no post of this channel on the database, I add everything on it.

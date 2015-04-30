@@ -10,7 +10,12 @@ class Channel {
      * @return App\Channel
      */
     public static function lookup($id) {
-        return App\Channel::find($id);
+        $channel = \App\Channel::find($id);
+        if ($channel)
+            return $channel;
+        $crawler = new Crawler($id);
+        $crawler->updateItems();
+        return $crawler->getChannel();
     }
 
 }

@@ -1,6 +1,4 @@
 <?php
-
-use Illuminate\Http\Response;
 use App\User;
 
 /*
