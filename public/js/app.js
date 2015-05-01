@@ -59,7 +59,7 @@
 
         }]);
 
-    app.controller('ProfileController', ['$http', function (http) {
+    app.controller('ProfileController', ['$http', '$timeout', function (http, timeout) {
             var form = this;
             form.profile = {};
             form.alert = {
@@ -69,13 +69,21 @@
                 http.post('/profile', form.profile, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
                             form.alert.hide = 0;
-                            form.alert.message = data.result;
                             if (data.error) {
+                                var m = '';
                                 form.alert.type = 'alert-danger';
+                                for(var key in data.result){
+                                    m += '<p><b>' + key + '</b>: ' + data.result[key].join(' ')+"</p>";
+                                }
+                                form.alert.message = m;
                             } else {
                                 form.alert.type = 'alert-success';
+                                form.alert.message = "Profile updated.";
                                 form.profile = {name: data.result.name};
                             }
+                            timeout(function(){
+                                form.alert.hide = 1;
+                            }, 4000);
                         });
             };
         }]);
@@ -117,6 +125,9 @@
                                 dashboard.feeds = [];
                                 dashboard.moreFeed();
                             }
+                            timeout(function(){
+                                form.alert.hide = 1;
+                            }, 4000);
                         });
             };
 

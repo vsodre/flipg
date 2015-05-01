@@ -46,7 +46,7 @@
             </div>
         </nav>
 
-        <div class="container navbar-spacer">
+        <div class="container navbar-spacer" ng-cloak>
             <div class="row">
                 <div id="dashboard-tabs">
                     <ul class="nav nav-pills">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="modal-body">
                         <form class="" name="form_profle" role="form" ng-controller="ProfileController as ProfileCtrl" ng-submit="ProfileCtrl.submit()">
-                            <div class="alert {{ProfileCtrl.alert.type}} alert-dismissable" ng-hide="ProfileCtrl.alert.hide" role="alert">{{ProfileCtrl.alert.message}}</div>
+                            <div class="alert {{ProfileCtrl.alert.type}} alert-dismissable" ng-hide="ProfileCtrl.alert.hide" role="alert" ng-bind-html="">{{ProfileCtrl.alert.message}}</div>
 
                             <div class="form-group form-group-lg">
                                 <label>Name</label>
