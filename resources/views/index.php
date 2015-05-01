@@ -26,13 +26,13 @@
                     <a class="navbar-brand" href="/">FlipG</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <form class="navbar-form navbar-left" style="margin-left: 4%; width: 87%;">
+                    <form role="form" class="navbar-form navbar-left" style="margin-left: 4%; width: 87%;" ng-controller="SearchController as SearchCtrl">
                         <div class="form-group" style="width: 100%;">
                             <div class="input-group">
                                 <span class="input-group-addon" style="width:3.5%;"><span
                                         class="glyphicon glyphicon-search"></span></span>
                                 <input class="form-control" name="search" placeholder="Search Here" autocomplete="off"
-                                       type="text">
+                                       type="text" ng-model="dashboard.model.searchFilter" ng-keypress="SearchCtrl.submit($event, dashboard)">
                             </div>
                         </div>
                     </form>

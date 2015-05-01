@@ -1,5 +1,6 @@
 (function () {
     var app = angular.module("mockup", ['ngTouch', 'infinite-scroll']);
+    
     app.controller('DashboardController', ['$http', function (http) {
             var dashboard = this;
             dashboard.page = 0;
@@ -7,6 +8,7 @@
             dashboard.menuState = false;
             dashboard.filters = [{"name": "All"}, {"name": "News"}, {"name": "Photos"}, {"name": "Videos"}];
             dashboard.feeds = [];
+            dashboard.model={};
             dashboard.isActive = function (i) {
                 return i === dashboard.activeFilter;
             };
@@ -20,8 +22,8 @@
                 dashboard.menuState = !dashboard.menuState;
             };
             dashboard.moreFeed = function () {
-                http.post('/dashboard/feeds/' + dashboard.page)
-                        .success(function (data) {
+                http.post('/dashboard/feeds/' + dashboard.page, dashboard.model)
+                        .success(function (data) { 
                             for (var i = 0; i < data.result.length; i++) {
                                 dashboard.feeds.push(data.result[i]);
                             }
@@ -30,6 +32,20 @@
                         });
             };
         }]);
+    
+    app.controller('SearchController', ['$http', function(http){
+        var search=this;
+        search.filter="";
+        search.submit = function(keyEvent, dashboard) {
+            if(keyEvent.which !== 13) return;
+            
+            dashboard.page=0;
+            dashboard.feeds=[];
+            dashboard.moreFeed();
+        };
+        
+    }]);
+    
     app.controller('ProfileController', ['$http', function (http) {
             var form = this;
             form.profile = {};
