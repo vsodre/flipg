@@ -32,7 +32,7 @@
                                 <span class="input-group-addon" style="width:3.5%;"><span
                                         class="glyphicon glyphicon-search"></span></span>
                                 <input class="form-control" name="search" placeholder="Search Here" autocomplete="off"
-                                       type="text" ng-model="dashboard.model.searchFilter" ng-keypress="SearchCtrl.submit($event, dashboard)">
+                                       type="text" ng-model="dashboard.model.searchFilter" ng-keyup="SearchCtrl.typer(dashboard)">
                             </div>
                         </div>
                     </form>

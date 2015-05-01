@@ -38,7 +38,7 @@ class Profile extends Controller {
     }
 
     public function postChannels(Request $r) {
-        $validator = Validator::make($r->all(), ['address' => 'required']);
+        $validator = Validator::make($r->all(), ['address' => 'required|url']);
         if ($validator->fails()) {
             return response()->json(['error' => 1, 'result' => $validator->errors()->getMessages()]);
         } else {

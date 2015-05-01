@@ -1,4 +1,5 @@
 <?php
+
 use App\User;
 
 /*
@@ -15,28 +16,6 @@ Route::get('/', function() {
     if (Auth::check())
         return redirect('dashboard');
     return redirect('auth/login');
-});
-Route::get('/data.json', function() {
-    //$cursor = DB::getCollection('posts')->find(); //official communication proccess
-    $cursor = User::raw()->find();
-    $posts = [];
-    foreach ($cursor as $d)
-        $posts[] = $d;
-    return response()->json($posts);
-});
-Route::get('/user.data', function() {
-    $user = Auth::user();
-    $user->teste = array("ab", "cd", "ef");
-    $user->save();
-    return var_dump(($user), true);
-});
-Route::get('collect', function() {
-    $feed = \Feeds::make('http://jovemnerd.com.br/rss');
-    $ret = "";
-    foreach ($feed->get_items() as $item) {
-        $ret .= $item->get_title() . "<br/>";
-    }
-    return $ret;
 });
 Route::post('dashboard/feeds/{page}', 'dashboard@get_feeds')->where('page', '[0-9]+');
 Route::controllers([
