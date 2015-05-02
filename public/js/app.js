@@ -18,7 +18,12 @@
             dashboard.openChannelsForm = function () {
                 modal.open({
                     templateUrl: 'templates/channels.form.tpl.html',
-                    controller: 'ChannelsController as ChannelCtrl'
+                    controller: 'ChannelsController as ChannelCtrl',
+                    resolve: {
+                        dashboard: function () {
+                            return dashboard;
+                        }
+                    }
                 });
             };
             dashboard.isActive = function (i) {
@@ -97,7 +102,7 @@
                 form.profile.name = data.result.name;
             });
         }]);
-    app.controller('ChannelsController', ['$http', '$modalInstance', function (http, modal) {
+    app.controller('ChannelsController', ['$http', '$modalInstance', 'dashboard', function (http, modal, dashboard) {
             var form = this;
             form.channel = {};
             form.channels = [];
@@ -107,7 +112,7 @@
                     form.channels = data.result;
                 });
             };
-            form.unsubscribe = function (id, dashboard) {
+            form.unsubscribe = function (id) {
                 form.channels.splice(id, 1);
                 http.post('/profile/channels-update', {'channels': form.channels}, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
@@ -117,14 +122,14 @@
                             dashboard.moreFeed();
                         });
             };
-            form.submit = function (dashboard) {
+            form.submit = function () {
                 http.post('/profile/channels', form.channel, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
                             form.channel = {};
                             if (data.error) {
                                 form.alerts.push({type: 'danger', message: data.result});
                             } else {
-                                form.alerts.push({type: 'success', message: data.result});
+                                form.alerts.push({type: 'success', message: 'Channel added successfully'});
                                 form.channels = data.result;
                                 dashboard.page = 0;
                                 dashboard.feeds = [];
