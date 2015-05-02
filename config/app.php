@@ -23,7 +23,7 @@ return [
       | your application so that it is used when running Artisan tasks.
       |
      */
-    'url' => 'http://localhost',
+    'url' => 'http://http://143.200.48.100',
     /*
       |--------------------------------------------------------------------------
       | Application Timezone

@@ -1,7 +1,7 @@
 (function () {
-    var app = angular.module("mockup", ['ngTouch', 'infinite-scroll']);
+    var app = angular.module("mockup", ['ngTouch', 'infinite-scroll', 'ui.bootstrap']);
 
-    app.controller('DashboardController', ['$http', function (http) {
+    app.controller('DashboardController', ['$http', '$modal', function (http, modal) {
             var dashboard = this;
             dashboard.page = 0;
             dashboard.activeFilter = 0;
@@ -9,6 +9,18 @@
             dashboard.filters = [{"name": "All"}, {"name": "News"}, {"name": "Photos"}, {"name": "Videos"}];
             dashboard.feeds = [];
             dashboard.model = {};
+            dashboard.openAccountForm = function () {
+                modal.open({
+                    templateUrl: 'templates/account.form.tpl.html',
+                    controller: 'ProfileController as ProfileCtrl'
+                });
+            };
+            dashboard.openChannelsForm = function () {
+                modal.open({
+                    templateUrl: 'templates/channels.form.tpl.html',
+                    controller: 'ChannelsController as ChannelCtrl'
+                });
+            };
             dashboard.isActive = function (i) {
                 return i === dashboard.activeFilter;
             };
@@ -59,42 +71,37 @@
 
         }]);
 
-    app.controller('ProfileController', ['$http', '$timeout', function (http, timeout) {
+    app.controller('ProfileController', ['$http', '$modalInstance', function (http, modal) {
             var form = this;
             form.profile = {};
-            form.alert = {
-                hide: 1
-            };
+            form.alerts = [];
             form.submit = function () {
                 http.post('/profile', form.profile, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
-                            form.alert.hide = 0;
                             if (data.error) {
                                 var m = '';
-                                form.alert.type = 'alert-danger';
-                                for(var key in data.result){
-                                    m += '<p><b>' + key + '</b>: ' + data.result[key].join(' ')+"</p>";
+                                for (var key in data.result) {
+                                    m += '<p><b>' + key + '</b>: ' + data.result[key].join(' ') + "</p>";
                                 }
-                                form.alert.message = m;
+                                form.alerts.push({type: 'danger', message: m});
                             } else {
-                                form.alert.type = 'alert-success';
-                                form.alert.message = "Profile updated.";
+                                form.alerts.push({type: 'success', message: "Profile updated."});
                                 form.profile = {name: data.result.name};
                             }
-                            timeout(function(){
-                                form.alert.hide = 1;
-                            }, 4000);
                         });
             };
+            form.close = function () {
+                modal.dismiss('');
+            };
+            http.get('/profile').success(function (data) {
+                form.profile.name = data.result.name;
+            });
         }]);
-    app.controller('ChannelsController', ['$http', function (http) {
-
+    app.controller('ChannelsController', ['$http', '$modalInstance', function (http, modal) {
             var form = this;
             form.channel = {};
             form.channels = [];
-            form.alert = {
-                hide: 1
-            };
+            form.alerts = [];
             form.load = function () {
                 http.get('profile/channels').success(function (data) {
                     form.channels = data.result;
@@ -113,23 +120,23 @@
             form.submit = function (dashboard) {
                 http.post('/profile/channels', form.channel, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
-                            form.alert.hide = 0;
-                            form.alert.message = data.result;
                             form.channel = {};
                             if (data.error) {
-                                form.alert.type = 'alert-danger';
+                                form.alerts.push({type: 'danger', message: data.result});
                             } else {
-                                form.alert.type = 'alert-success';
+                                form.alerts.push({type: 'success', message: data.result});
                                 form.channels = data.result;
                                 dashboard.page = 0;
                                 dashboard.feeds = [];
                                 dashboard.moreFeed();
                             }
-                            timeout(function(){
-                                form.alert.hide = 1;
-                            }, 4000);
                         });
             };
-
+            form.close = function () {
+                modal.dismiss('');
+            };
+            http.get('/profile/channels').success(function (data) {
+                form.channels = data.result.name;
+            });
         }]);
 })();

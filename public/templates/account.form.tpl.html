@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="ProfileCtrl.close()" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Account</h4>
+</div>
+<div class="modal-body">
+    <form class="" name="form_profle" role="form" ng-submit="ProfileCtrl.submit()">
+        <alert ng-repeat="alert in ProfileCtrl.alerts" type="{{alert.type}}" close="ProfileCtrl.alerts.splice($index, 1)">{{alert.message}}</alert>
+
+        <div class="form-group form-group-lg">
+            <label>Name</label>
+            <input type="text" ng-model="ProfileCtrl.profile.name" class="form-control" name="name" ng-init="ProfileCtrl.profile.name = name">
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label>Password</label>
+            <input type="password" ng-model="ProfileCtrl.profile.password" class="form-control" name="password">
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label>Confirm Password</label>
+            <input type="password" ng-model="ProfileCtrl.profile.password_confirmation" class="form-control" name="password_confirmation">
+        </div>
+        <div class="form-group form-group-lg">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Save</button>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="ProfileCtrl.close()">Close</button>
+</div>
