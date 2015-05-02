@@ -86,7 +86,7 @@
                             if (data.error) {
                                 var m = '';
                                 for (var key in data.result) {
-                                    m += '<p><b>' + key + '</b>: ' + data.result[key].join(' ') + "</p>";
+                                    m += key + ': ' + data.result[key].join(' ');
                                 }
                                 form.alerts.push({type: 'danger', message: m});
                             } else {
@@ -127,7 +127,7 @@
                         .success(function (data) {
                             form.channel = {};
                             if (data.error) {
-                                form.alerts.push({type: 'danger', message: data.result});
+                                form.alerts.push({type: 'danger', message: 'Address: ' + data.result.address.join(' ')});
                             } else {
                                 form.alerts.push({type: 'success', message: 'Channel added successfully'});
                                 form.channels = data.result;
