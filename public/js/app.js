@@ -102,11 +102,17 @@
                 form.profile.name = data.result.name;
             });
         }]);
-    app.controller('ChannelsController', ['$http', '$modalInstance', 'dashboard', function (http, modal, dashboard) {
+    app.controller('ChannelsController', ['$http', '$modalInstance', 'dashboard', '$timeout', function (http, modal, dashboard, timeout) {
             var form = this;
             form.channel = {};
             form.channels = [];
             form.alerts = [];
+            form.setAlert = function(alert){
+                form.alerts.push(alert);
+                /*timeout(function(){
+                    form.alerts.splice(form.alerts.length-1, 1);
+                }, 4000);*/
+            };
             form.load = function () {
                 http.get('profile/channels').success(function (data) {
                     form.channels = data.result;
@@ -116,6 +122,7 @@
                 form.channels.splice(id, 1);
                 http.post('/profile/channels-update', {'channels': form.channels}, {'Content-Type': 'application/x-www-form-urlencoded'})
                         .success(function (data) {
+                            if(!data.error) form.alerts.push({type:'success', message:'Channel removed.'});
                             form.channels = data.result;
                             dashboard.page = 0;
                             dashboard.feeds = [];
@@ -129,7 +136,7 @@
                             if (data.error) {
                                 form.alerts.push({type: 'danger', message: 'Address: ' + data.result.address.join(' ')});
                             } else {
-                                form.alerts.push({type: 'success', message: 'Channel added successfully'});
+                                form.alerts.push({type: 'success', message: 'Channel added successfully.'});
                                 form.channels = data.result;
                                 dashboard.page = 0;
                                 dashboard.feeds = [];
